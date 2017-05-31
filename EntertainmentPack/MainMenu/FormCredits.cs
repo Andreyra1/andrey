@@ -24,5 +24,10 @@ namespace MainMenu
                 this.Hide();
             }
         }
+
+        private void FormCredits_Load(object sender, EventArgs e)
+        {
+            axWindowsMediaPlayer1.URL = "Music/FINAL CREDITS.mp4";
+        }
     }
 }
