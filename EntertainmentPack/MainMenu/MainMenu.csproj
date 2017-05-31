@@ -1,0 +1,353 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{7BA17B4F-7E02-41FE-BAA2-38A0AB2C167B}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>MainMenu</RootNamespace>
+    <AssemblyName>MainMenu</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Resources\GameIcon.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Battleships.cs" />
+    <Compile Include="Cards.cs" />
+    <Compile Include="Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form2.Designer.cs">
+      <DependentUpon>Form2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormBattleships.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormBattleships.Designer.cs">
+      <DependentUpon>FormBattleships.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormCredits.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormCredits.Designer.cs">
+      <DependentUpon>FormCredits.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormDurak.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormDurak.Designer.cs">
+      <DependentUpon>FormDurak.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormPause.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormPause.Designer.cs">
+      <DependentUpon>FormPause.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormTetris.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormTetris.Designer.cs">
+      <DependentUpon>FormTetris.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormTicTac.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormTicTac.Designer.cs">
+      <DependentUpon>FormTicTac.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Game.cs" />
+    <Compile Include="MyPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Pc.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Tetris.cs" />
+    <Compile Include="TicTac.cs" />
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormBattleships.resx">
+      <DependentUpon>FormBattleships.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormCredits.resx">
+      <DependentUpon>FormCredits.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormDurak.resx">
+      <DependentUpon>FormDurak.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormPause.resx">
+      <DependentUpon>FormPause.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormTetris.resx">
+      <DependentUpon>FormTetris.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormTicTac.resx">
+      <DependentUpon>FormTicTac.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\fon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cross.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\notebook_texture2464.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\alive.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cell.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\max1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\149485800666020 %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\149485800666020 %282%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Background.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\BackgroundBattleships.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="AxWMPLib">
+      <Guid>{6BF52A50-394A-11D3-B153-00C04F79FAA6}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>aximp</WrapperTool>
+      <Isolated>False</Isolated>
+    </COMReference>
+    <COMReference Include="WMPLib">
+      <Guid>{6BF52A50-394A-11D3-B153-00C04F79FAA6}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\149330472610066.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\149330472610066 %282%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\149330472610066 %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\149330472610066 %285%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\149330472610066 %286%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\149330472610066 %283%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\149330472610066 %284%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Background2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Background1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Release\Sounds\BattleShipDeath.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Release\Sounds\BattleShipsHit.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Release\Sounds\BattleshipsMiss.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Release\Sounds\Draw.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Release\Sounds\DurakBito.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Release\Sounds\DurakGiveCards.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Release\Sounds\DurakITake.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Release\Sounds\DurakMove.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Release\Sounds\DurakReallyTakes.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Release\Sounds\DurakShuffle.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Release\Sounds\DurakTakes.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Release\Sounds\DurakYourTurn.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Release\Sounds\Exception Error.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Release\Sounds\Looose.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Release\Sounds\TetrisDown.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Release\Sounds\TetrisMove.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Release\Sounds\TetrisRotate.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Release\Sounds\TicTacToeDraw.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Release\Sounds\Win.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\TetrisMove.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\image002ffff.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\oie_transparent.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ScreenshotBattleships.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ScreenshotTicTac.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ScreenshotTetris.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ScreenshotDurak.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\65f57a9589caf275a846c71b4eb1f812.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\doodle-1388118_960_720.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\doodles-41-512.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Template_KeyClub_Cyan earphone doodle.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\fa351808b812e7519fdaf9330414f7e7_heart-heart-doodle-and-doodle-heart-clipart-free_1023-810.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Template_KeyClub_Red music note doodle.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\8e180e7e0ebdadb1092f6eda5267e0be_doodle-arrow-clip-art-png-clipart-doodle_2000-782.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\doodles-22-512.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\arrow.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\arrow1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Template_KeyClub_Blue graduation doodle.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GameIcon.ico" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
