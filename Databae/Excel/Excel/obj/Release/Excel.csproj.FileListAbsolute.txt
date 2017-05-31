@@ -1,0 +1,14 @@
+C:\Users\Andrei\Desktop\Excel\Excel\bin\Release\ICSharpCode.SharpZipLib.dll
+C:\Users\Andrei\Desktop\Excel\Excel\obj\Release\Excel.AddForm.resources
+C:\Users\Andrei\Desktop\Excel\Excel\obj\Release\Excel.AmmountForm.resources
+C:\Users\Andrei\Desktop\Excel\Excel\obj\Release\Excel.Form1.resources
+C:\Users\Andrei\Desktop\Excel\Excel\obj\Release\Excel.csproj.GenerateResource.Cache
+C:\Users\Andrei\Desktop\Excel\Excel\bin\Release\Databae.exe.config
+C:\Users\Andrei\Desktop\Excel\Excel\bin\Release\Databae.exe
+C:\Users\Andrei\Desktop\Excel\Excel\bin\Release\Databae.pdb
+C:\Users\Andrei\Desktop\Excel\Excel\obj\Release\Databae.Properties.Resources.resources
+C:\Users\Andrei\Desktop\Excel\Excel\obj\Release\Databae.exe
+C:\Users\Andrei\Desktop\Excel\Excel\obj\Release\Databae.pdb
+C:\Users\Andrei\Desktop\Projects\Databae\Excel\Excel\bin\Release\Databae.exe.config
+C:\Users\Andrei\Desktop\Projects\Databae\Excel\Excel\obj\Release\Databae.exe
+C:\Users\Andrei\Desktop\Projects\Databae\Excel\Excel\obj\Release\Databae.pdb
