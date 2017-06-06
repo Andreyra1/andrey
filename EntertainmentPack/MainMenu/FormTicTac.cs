@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using WMPLib;
+using System.Drawing.Text;
 
 namespace MainMenu
 {
@@ -18,6 +19,12 @@ namespace MainMenu
         {
             InitializeComponent();
         }
+        [System.Runtime.InteropServices.DllImport("gdi32.dll")]
+        private static extern IntPtr AddFontMemResourceEx(IntPtr pbFont, uint cbFont,
+            IntPtr pdv, [System.Runtime.InteropServices.In] ref uint pcFonts);
+        private PrivateFontCollection fonts = new PrivateFontCollection();
+        Font brokenChalk;
+        byte[] fontData = Properties.Resources.BrokenChalk;
         SoundPlayer DrawSound = new SoundPlayer(Properties.Resources.Draw);
         SoundPlayer Write = new SoundPlayer(Properties.Resources.TicTacDraw);
         SoundPlayer Win = new SoundPlayer(Properties.Resources.Win);
@@ -34,6 +41,24 @@ namespace MainMenu
 
         private void FormTicTac_Load(object sender, EventArgs e)
         {
+            IntPtr fontPtr = System.Runtime.InteropServices.Marshal.AllocCoTaskMem(fontData.Length);
+            System.Runtime.InteropServices.Marshal.Copy(fontData, 0, fontPtr, fontData.Length);
+            uint dummy = 0;
+            fonts.AddMemoryFont(fontPtr, Properties.Resources.BrokenChalk.Length);
+            AddFontMemResourceEx(fontPtr, (uint)Properties.Resources.BrokenChalk.Length, IntPtr.Zero, ref dummy);
+            System.Runtime.InteropServices.Marshal.FreeCoTaskMem(fontPtr);
+            brokenChalk = new Font(fonts.Families[0], 26.25F);
+            labelCount1.Font = brokenChalk;
+            labelCount2.Font = brokenChalk;
+            labelCountD.Font = brokenChalk;
+            labelP1.Font = brokenChalk;
+            labelP2.Font = brokenChalk;
+            label1.Font = brokenChalk;
+            brokenChalk = new Font(fonts.Families[0], 15.75F);
+            label2.Font = brokenChalk;
+            comboBox.Font = brokenChalk;
+            button1.Font = brokenChalk;
+
             for (int i = 0; i < 3; i++)
             {
                 for (int j = 0; j < 3; j++)

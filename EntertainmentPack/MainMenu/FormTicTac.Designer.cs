@@ -124,7 +124,7 @@
             // comboBox
             // 
             this.comboBox.BackColor = System.Drawing.Color.Lavender;
-            this.comboBox.Font = new System.Drawing.Font("Broken Chalk", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBox.Font = new System.Drawing.Font("Broken Chalk", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBox.ForeColor = System.Drawing.Color.Blue;
             this.comboBox.FormattingEnabled = true;
             this.comboBox.Items.AddRange(new object[] {
@@ -134,7 +134,7 @@
             "PLAYER VS PLAYER"});
             this.comboBox.Location = new System.Drawing.Point(12, 283);
             this.comboBox.Name = "comboBox";
-            this.comboBox.Size = new System.Drawing.Size(247, 29);
+            this.comboBox.Size = new System.Drawing.Size(247, 31);
             this.comboBox.TabIndex = 8;
             this.comboBox.Text = "IMPOSSIBLE";
             this.comboBox.SelectedIndexChanged += new System.EventHandler(this.comboBox_SelectedIndexChanged);
@@ -187,7 +187,7 @@
             // button1
             // 
             this.button1.BackgroundImage = global::MainMenu.Properties.Resources.Back;
-            this.button1.Font = new System.Drawing.Font("Broken Chalk", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Font = new System.Drawing.Font("Broken Chalk", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ForeColor = System.Drawing.Color.Blue;
             this.button1.Location = new System.Drawing.Point(30, 608);
             this.button1.Name = "button1";

@@ -22,7 +22,7 @@ namespace MainMenu.Properties {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class Resources {
+    public class Resources {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
@@ -36,7 +36,7 @@ namespace MainMenu.Properties {
         ///   Returns the cached ResourceManager instance used by this class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Resources.ResourceManager ResourceManager {
+        public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
                     global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("MainMenu.Properties.Resources", typeof(Resources).Assembly);
@@ -51,7 +51,7 @@ namespace MainMenu.Properties {
         ///   resource lookups using this strongly typed resource class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Globalization.CultureInfo Culture {
+        public static global::System.Globalization.CultureInfo Culture {
             get {
                 return resourceCulture;
             }
@@ -63,7 +63,7 @@ namespace MainMenu.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap _65f57a9589caf275a846c71b4eb1f812 {
+        public static System.Drawing.Bitmap _65f57a9589caf275a846c71b4eb1f812 {
             get {
                 object obj = ResourceManager.GetObject("65f57a9589caf275a846c71b4eb1f812", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -73,7 +73,7 @@ namespace MainMenu.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap _8e180e7e0ebdadb1092f6eda5267e0be_doodle_arrow_clip_art_png_clipart_doodle_2000_782 {
+        public static System.Drawing.Bitmap _8e180e7e0ebdadb1092f6eda5267e0be_doodle_arrow_clip_art_png_clipart_doodle_2000_782 {
             get {
                 object obj = ResourceManager.GetObject("8e180e7e0ebdadb1092f6eda5267e0be_doodle-arrow-clip-art-png-clipart-doodle_2000-78" +
                         "2", resourceCulture);
@@ -84,7 +84,7 @@ namespace MainMenu.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Alive {
+        public static System.Drawing.Bitmap Alive {
             get {
                 object obj = ResourceManager.GetObject("Alive", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -94,7 +94,7 @@ namespace MainMenu.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap arrow {
+        public static System.Drawing.Bitmap arrow {
             get {
                 object obj = ResourceManager.GetObject("arrow", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -104,7 +104,7 @@ namespace MainMenu.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap arrow1 {
+        public static System.Drawing.Bitmap arrow1 {
             get {
                 object obj = ResourceManager.GetObject("arrow1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -114,7 +114,7 @@ namespace MainMenu.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Back {
+        public static System.Drawing.Bitmap Back {
             get {
                 object obj = ResourceManager.GetObject("Back", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -124,7 +124,7 @@ namespace MainMenu.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Background {
+        public static System.Drawing.Bitmap Background {
             get {
                 object obj = ResourceManager.GetObject("Background", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -134,7 +134,7 @@ namespace MainMenu.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Background1 {
+        public static System.Drawing.Bitmap Background1 {
             get {
                 object obj = ResourceManager.GetObject("Background1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -144,7 +144,7 @@ namespace MainMenu.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap BackgroundBattleships {
+        public static System.Drawing.Bitmap BackgroundBattleships {
             get {
                 object obj = ResourceManager.GetObject("BackgroundBattleships", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -154,7 +154,7 @@ namespace MainMenu.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap BackgroundTetris {
+        public static System.Drawing.Bitmap BackgroundTetris {
             get {
                 object obj = ResourceManager.GetObject("BackgroundTetris", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -164,7 +164,7 @@ namespace MainMenu.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
         /// </summary>
-        internal static System.IO.UnmanagedMemoryStream BattleshipsDeath {
+        public static System.IO.UnmanagedMemoryStream BattleshipsDeath {
             get {
                 return ResourceManager.GetStream("BattleshipsDeath", resourceCulture);
             }
@@ -173,7 +173,7 @@ namespace MainMenu.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
         /// </summary>
-        internal static System.IO.UnmanagedMemoryStream BattleshipsHit {
+        public static System.IO.UnmanagedMemoryStream BattleshipsHit {
             get {
                 return ResourceManager.GetStream("BattleshipsHit", resourceCulture);
             }
@@ -182,7 +182,7 @@ namespace MainMenu.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
         /// </summary>
-        internal static System.IO.UnmanagedMemoryStream BattleshipsMiss {
+        public static System.IO.UnmanagedMemoryStream BattleshipsMiss {
             get {
                 return ResourceManager.GetStream("BattleshipsMiss", resourceCulture);
             }
@@ -191,7 +191,7 @@ namespace MainMenu.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Blue {
+        public static System.Drawing.Bitmap Blue {
             get {
                 object obj = ResourceManager.GetObject("Blue", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -199,9 +199,19 @@ namespace MainMenu.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        public static byte[] BrokenChalk {
+            get {
+                object obj = ResourceManager.GetObject("BrokenChalk", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Damaged {
+        public static System.Drawing.Bitmap Damaged {
             get {
                 object obj = ResourceManager.GetObject("Damaged", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -211,7 +221,7 @@ namespace MainMenu.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Dead {
+        public static System.Drawing.Bitmap Dead {
             get {
                 object obj = ResourceManager.GetObject("Dead", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -221,7 +231,7 @@ namespace MainMenu.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap doodle_1388118_960_720 {
+        public static System.Drawing.Bitmap doodle_1388118_960_720 {
             get {
                 object obj = ResourceManager.GetObject("doodle-1388118_960_720", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -231,7 +241,7 @@ namespace MainMenu.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap doodles_22_512 {
+        public static System.Drawing.Bitmap doodles_22_512 {
             get {
                 object obj = ResourceManager.GetObject("doodles-22-512", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -241,7 +251,7 @@ namespace MainMenu.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap doodles_41_512 {
+        public static System.Drawing.Bitmap doodles_41_512 {
             get {
                 object obj = ResourceManager.GetObject("doodles-41-512", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -251,7 +261,7 @@ namespace MainMenu.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
         /// </summary>
-        internal static System.IO.UnmanagedMemoryStream Draw {
+        public static System.IO.UnmanagedMemoryStream Draw {
             get {
                 return ResourceManager.GetStream("Draw", resourceCulture);
             }
@@ -260,7 +270,7 @@ namespace MainMenu.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
         /// </summary>
-        internal static System.IO.UnmanagedMemoryStream DurakBito {
+        public static System.IO.UnmanagedMemoryStream DurakBito {
             get {
                 return ResourceManager.GetStream("DurakBito", resourceCulture);
             }
@@ -269,7 +279,7 @@ namespace MainMenu.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
         /// </summary>
-        internal static System.IO.UnmanagedMemoryStream DurakGive {
+        public static System.IO.UnmanagedMemoryStream DurakGive {
             get {
                 return ResourceManager.GetStream("DurakGive", resourceCulture);
             }
@@ -278,7 +288,7 @@ namespace MainMenu.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
         /// </summary>
-        internal static System.IO.UnmanagedMemoryStream DurakITake {
+        public static System.IO.UnmanagedMemoryStream DurakITake {
             get {
                 return ResourceManager.GetStream("DurakITake", resourceCulture);
             }
@@ -287,7 +297,7 @@ namespace MainMenu.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
         /// </summary>
-        internal static System.IO.UnmanagedMemoryStream DurakMove {
+        public static System.IO.UnmanagedMemoryStream DurakMove {
             get {
                 return ResourceManager.GetStream("DurakMove", resourceCulture);
             }
@@ -296,7 +306,7 @@ namespace MainMenu.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
         /// </summary>
-        internal static System.IO.UnmanagedMemoryStream DurakShuffle {
+        public static System.IO.UnmanagedMemoryStream DurakShuffle {
             get {
                 return ResourceManager.GetStream("DurakShuffle", resourceCulture);
             }
@@ -305,7 +315,7 @@ namespace MainMenu.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
         /// </summary>
-        internal static System.IO.UnmanagedMemoryStream DurakTake {
+        public static System.IO.UnmanagedMemoryStream DurakTake {
             get {
                 return ResourceManager.GetStream("DurakTake", resourceCulture);
             }
@@ -314,7 +324,7 @@ namespace MainMenu.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
         /// </summary>
-        internal static System.IO.UnmanagedMemoryStream DurakUh {
+        public static System.IO.UnmanagedMemoryStream DurakUh {
             get {
                 return ResourceManager.GetStream("DurakUh", resourceCulture);
             }
@@ -323,7 +333,7 @@ namespace MainMenu.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
         /// </summary>
-        internal static System.IO.UnmanagedMemoryStream DurakYourTurn {
+        public static System.IO.UnmanagedMemoryStream DurakYourTurn {
             get {
                 return ResourceManager.GetStream("DurakYourTurn", resourceCulture);
             }
@@ -332,7 +342,7 @@ namespace MainMenu.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
         /// </summary>
-        internal static System.IO.UnmanagedMemoryStream Error {
+        public static System.IO.UnmanagedMemoryStream Error {
             get {
                 return ResourceManager.GetStream("Error", resourceCulture);
             }
@@ -341,7 +351,7 @@ namespace MainMenu.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap fa351808b812e7519fdaf9330414f7e7_heart_heart_doodle_and_doodle_heart_clipart_free_1023_810 {
+        public static System.Drawing.Bitmap fa351808b812e7519fdaf9330414f7e7_heart_heart_doodle_and_doodle_heart_clipart_free_1023_810 {
             get {
                 object obj = ResourceManager.GetObject("fa351808b812e7519fdaf9330414f7e7_heart-heart-doodle-and-doodle-heart-clipart-free" +
                         "_1023-810", resourceCulture);
@@ -352,7 +362,7 @@ namespace MainMenu.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
         /// </summary>
-        internal static System.Drawing.Icon GameIcon {
+        public static System.Drawing.Icon GameIcon {
             get {
                 object obj = ResourceManager.GetObject("GameIcon", resourceCulture);
                 return ((System.Drawing.Icon)(obj));
@@ -362,7 +372,7 @@ namespace MainMenu.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Green {
+        public static System.Drawing.Bitmap Green {
             get {
                 object obj = ResourceManager.GetObject("Green", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -372,7 +382,7 @@ namespace MainMenu.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap image002ffff {
+        public static System.Drawing.Bitmap image002ffff {
             get {
                 object obj = ResourceManager.GetObject("image002ffff", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -382,7 +392,7 @@ namespace MainMenu.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Light {
+        public static System.Drawing.Bitmap Light {
             get {
                 object obj = ResourceManager.GetObject("Light", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -392,7 +402,7 @@ namespace MainMenu.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
         /// </summary>
-        internal static System.IO.UnmanagedMemoryStream Lose {
+        public static System.IO.UnmanagedMemoryStream Lose {
             get {
                 return ResourceManager.GetStream("Lose", resourceCulture);
             }
@@ -401,7 +411,7 @@ namespace MainMenu.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Miss {
+        public static System.Drawing.Bitmap Miss {
             get {
                 object obj = ResourceManager.GetObject("Miss", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -411,7 +421,7 @@ namespace MainMenu.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap NewGreen {
+        public static System.Drawing.Bitmap NewGreen {
             get {
                 object obj = ResourceManager.GetObject("NewGreen", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -421,7 +431,7 @@ namespace MainMenu.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap NewRed {
+        public static System.Drawing.Bitmap NewRed {
             get {
                 object obj = ResourceManager.GetObject("NewRed", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -431,7 +441,7 @@ namespace MainMenu.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap oie_transparent {
+        public static System.Drawing.Bitmap oie_transparent {
             get {
                 object obj = ResourceManager.GetObject("oie_transparent", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -441,7 +451,7 @@ namespace MainMenu.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Orange {
+        public static System.Drawing.Bitmap Orange {
             get {
                 object obj = ResourceManager.GetObject("Orange", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -451,7 +461,7 @@ namespace MainMenu.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Pink {
+        public static System.Drawing.Bitmap Pink {
             get {
                 object obj = ResourceManager.GetObject("Pink", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -461,7 +471,7 @@ namespace MainMenu.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Purple {
+        public static System.Drawing.Bitmap Purple {
             get {
                 object obj = ResourceManager.GetObject("Purple", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -471,7 +481,7 @@ namespace MainMenu.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Red {
+        public static System.Drawing.Bitmap Red {
             get {
                 object obj = ResourceManager.GetObject("Red", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -481,7 +491,7 @@ namespace MainMenu.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap ScreenshotBattleships {
+        public static System.Drawing.Bitmap ScreenshotBattleships {
             get {
                 object obj = ResourceManager.GetObject("ScreenshotBattleships", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -491,7 +501,7 @@ namespace MainMenu.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap ScreenshotDurak {
+        public static System.Drawing.Bitmap ScreenshotDurak {
             get {
                 object obj = ResourceManager.GetObject("ScreenshotDurak", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -501,7 +511,7 @@ namespace MainMenu.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap ScreenshotTetris {
+        public static System.Drawing.Bitmap ScreenshotTetris {
             get {
                 object obj = ResourceManager.GetObject("ScreenshotTetris", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -511,7 +521,7 @@ namespace MainMenu.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap ScreenshotTicTac {
+        public static System.Drawing.Bitmap ScreenshotTicTac {
             get {
                 object obj = ResourceManager.GetObject("ScreenshotTicTac", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -521,7 +531,7 @@ namespace MainMenu.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Template_KeyClub_Blue_graduation_doodle {
+        public static System.Drawing.Bitmap Template_KeyClub_Blue_graduation_doodle {
             get {
                 object obj = ResourceManager.GetObject("Template_KeyClub_Blue graduation doodle", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -531,7 +541,7 @@ namespace MainMenu.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Template_KeyClub_Cyan_earphone_doodle {
+        public static System.Drawing.Bitmap Template_KeyClub_Cyan_earphone_doodle {
             get {
                 object obj = ResourceManager.GetObject("Template_KeyClub_Cyan earphone doodle", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -541,7 +551,7 @@ namespace MainMenu.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Template_KeyClub_Red_music_note_doodle {
+        public static System.Drawing.Bitmap Template_KeyClub_Red_music_note_doodle {
             get {
                 object obj = ResourceManager.GetObject("Template_KeyClub_Red music note doodle", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -551,7 +561,7 @@ namespace MainMenu.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
         /// </summary>
-        internal static System.IO.UnmanagedMemoryStream TetrisDown {
+        public static System.IO.UnmanagedMemoryStream TetrisDown {
             get {
                 return ResourceManager.GetStream("TetrisDown", resourceCulture);
             }
@@ -560,7 +570,7 @@ namespace MainMenu.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
         /// </summary>
-        internal static System.IO.UnmanagedMemoryStream TetrisMove {
+        public static System.IO.UnmanagedMemoryStream TetrisMove {
             get {
                 return ResourceManager.GetStream("TetrisMove", resourceCulture);
             }
@@ -569,7 +579,7 @@ namespace MainMenu.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
         /// </summary>
-        internal static System.IO.UnmanagedMemoryStream TetrisRotate {
+        public static System.IO.UnmanagedMemoryStream TetrisRotate {
             get {
                 return ResourceManager.GetStream("TetrisRotate", resourceCulture);
             }
@@ -578,7 +588,7 @@ namespace MainMenu.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
         /// </summary>
-        internal static System.IO.UnmanagedMemoryStream TicTacDraw {
+        public static System.IO.UnmanagedMemoryStream TicTacDraw {
             get {
                 return ResourceManager.GetStream("TicTacDraw", resourceCulture);
             }
@@ -587,7 +597,7 @@ namespace MainMenu.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
         /// </summary>
-        internal static System.IO.UnmanagedMemoryStream Win {
+        public static System.IO.UnmanagedMemoryStream Win {
             get {
                 return ResourceManager.GetStream("Win", resourceCulture);
             }

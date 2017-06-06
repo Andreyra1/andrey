@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using WMPLib;
+using System.Drawing.Text;
 
 namespace MainMenu
 {
@@ -18,6 +19,12 @@ namespace MainMenu
         {
             InitializeComponent();
         }
+        [System.Runtime.InteropServices.DllImport("gdi32.dll")]
+        private static extern IntPtr AddFontMemResourceEx(IntPtr pbFont, uint cbFont,
+            IntPtr pdv, [System.Runtime.InteropServices.In] ref uint pcFonts);
+        private PrivateFontCollection fonts = new PrivateFontCollection();
+        Font brokenChalk;
+        byte[] fontData = Properties.Resources.BrokenChalk;
         SoundPlayer Down = new SoundPlayer(Properties.Resources.TetrisDown);
         SoundPlayer Kill = new SoundPlayer(Properties.Resources.BattleshipsDeath);
         SoundPlayer Hit = new SoundPlayer(Properties.Resources.BattleshipsHit);
@@ -43,6 +50,14 @@ namespace MainMenu
 
         private void FormBattleships_Load(object sender, EventArgs e)
         {
+            IntPtr fontPtr = System.Runtime.InteropServices.Marshal.AllocCoTaskMem(fontData.Length);
+            System.Runtime.InteropServices.Marshal.Copy(fontData, 0, fontPtr, fontData.Length);
+            uint dummy = 0;
+            fonts.AddMemoryFont(fontPtr, Properties.Resources.BrokenChalk.Length);
+            AddFontMemResourceEx(fontPtr, (uint)Properties.Resources.BrokenChalk.Length, IntPtr.Zero, ref dummy);
+            System.Runtime.InteropServices.Marshal.FreeCoTaskMem(fontPtr);
+            brokenChalk = new Font(fonts.Families[0], 36.00F);
+            btnNextTurn.Font = brokenChalk;
             NewGame();
         }
 

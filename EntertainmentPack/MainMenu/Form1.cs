@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using WMPLib;
+using System.Drawing.Text;
 namespace MainMenu
 {
     public partial class Form1 : Form
@@ -17,15 +18,15 @@ namespace MainMenu
             InitializeComponent();
         }
 
-        //TODO
-        //
-        //                                    Add Music
-        //Battleships AI
-        //                                    Credits  
-        //Scores
-        //try catch
-
+        [System.Runtime.InteropServices.DllImport("gdi32.dll")]
+        private static extern IntPtr AddFontMemResourceEx(IntPtr pbFont, uint cbFont,
+            IntPtr pdv, [System.Runtime.InteropServices.In] ref uint pcFonts);
+        private PrivateFontCollection fonts = new PrivateFontCollection();
+        Font brokenChalk;
+        byte[] fontData = Properties.Resources.BrokenChalk;
+                  
         WindowsMediaPlayer player = new WindowsMediaPlayer();
+
         private void btnExit_Click(object sender, EventArgs e)
         {
             Application.Exit();
@@ -113,14 +114,33 @@ namespace MainMenu
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            IntPtr fontPtr = System.Runtime.InteropServices.Marshal.AllocCoTaskMem(fontData.Length);
+            System.Runtime.InteropServices.Marshal.Copy(fontData, 0, fontPtr, fontData.Length);
+            uint dummy = 0;
+            fonts.AddMemoryFont(fontPtr, Properties.Resources.BrokenChalk.Length);
+            AddFontMemResourceEx(fontPtr, (uint)Properties.Resources.BrokenChalk.Length, IntPtr.Zero, ref dummy);
+            System.Runtime.InteropServices.Marshal.FreeCoTaskMem(fontPtr);
+            brokenChalk = new Font(fonts.Families[0], 20.25F);
+            label.Font = brokenChalk;
+            brokenChalk = new Font(fonts.Families[0], 9.75F);
+            btnBattleships.Font = brokenChalk;
+            btnTicTac.Font = brokenChalk;
+            brokenChalk = new Font(fonts.Families[0], 18.00F);
+            btnDurak.Font = brokenChalk;
+            btnTetris.Font = brokenChalk;
+            btnExit.Font = brokenChalk;
+            brokenChalk = new Font(fonts.Families[0], 14.25F);
+            button1.Font = brokenChalk;
             player.URL = "Music/SongOne.wav";
             player.controls.play();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
+            player.controls.stop();
             FormCredits Credits = new FormCredits();
             Credits.Show();
+            this.Hide();
         }
     }
 }

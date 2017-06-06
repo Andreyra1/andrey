@@ -490,7 +490,7 @@
             this.button5.BackgroundImage = global::MainMenu.Properties.Resources.Back;
             this.button5.Font = new System.Drawing.Font("Broken Chalk", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button5.ForeColor = System.Drawing.Color.Blue;
-            this.button5.Location = new System.Drawing.Point(12, 313);
+            this.button5.Location = new System.Drawing.Point(12, 305);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(116, 57);
             this.button5.TabIndex = 78;

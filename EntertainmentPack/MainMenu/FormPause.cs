@@ -7,11 +7,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using System.Drawing.Text;
 namespace MainMenu
 {
     public partial class FormPause : Form
     {
+        [System.Runtime.InteropServices.DllImport("gdi32.dll")]
+        private static extern IntPtr AddFontMemResourceEx(IntPtr pbFont, uint cbFont,
+            IntPtr pdv, [System.Runtime.InteropServices.In] ref uint pcFonts);
+        private PrivateFontCollection fonts = new PrivateFontCollection();
+        Font brokenChalk;
+        byte[] fontData = Properties.Resources.BrokenChalk;
         Form original;
         FormTetris tetris;
         bool x1=false;
@@ -52,6 +58,21 @@ namespace MainMenu
                 //original.player.controls.stop();
                 original.Hide();
             }
+        }
+
+        private void FormPause_Load(object sender, EventArgs e)
+        {
+            IntPtr fontPtr = System.Runtime.InteropServices.Marshal.AllocCoTaskMem(fontData.Length);
+            System.Runtime.InteropServices.Marshal.Copy(fontData, 0, fontPtr, fontData.Length);
+            uint dummy = 0;
+            fonts.AddMemoryFont(fontPtr, Properties.Resources.BrokenChalk.Length);
+            AddFontMemResourceEx(fontPtr, (uint)Properties.Resources.BrokenChalk.Length, IntPtr.Zero, ref dummy);
+            System.Runtime.InteropServices.Marshal.FreeCoTaskMem(fontPtr);
+            brokenChalk = new Font(fonts.Families[0], 21.75F);
+            btnContinue.Font = brokenChalk;
+            btnExit.Font = brokenChalk;
+            brokenChalk = new Font(fonts.Families[0], 36.00F);
+            label1.Font = brokenChalk;
         }
     }
 }
