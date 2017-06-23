@@ -13,18 +13,12 @@ using System.Drawing.Text;
 
 namespace MainMenu
 {
-    public partial class FormBattleships : Form
+    public partial class FormBattleships : ParentForm
     {
         public FormBattleships()
         {
             InitializeComponent();
         }
-        [System.Runtime.InteropServices.DllImport("gdi32.dll")]
-        private static extern IntPtr AddFontMemResourceEx(IntPtr pbFont, uint cbFont,
-            IntPtr pdv, [System.Runtime.InteropServices.In] ref uint pcFonts);
-        private PrivateFontCollection fonts = new PrivateFontCollection();
-        Font brokenChalk;
-        byte[] fontData = Properties.Resources.BrokenChalk;
         SoundPlayer Down = new SoundPlayer(Properties.Resources.TetrisDown);
         SoundPlayer Kill = new SoundPlayer(Properties.Resources.BattleshipsDeath);
         SoundPlayer Hit = new SoundPlayer(Properties.Resources.BattleshipsHit);
@@ -33,10 +27,11 @@ namespace MainMenu
         SoundPlayer Win = new SoundPlayer(Properties.Resources.Win);
         Panel[,] Field1 = new Panel[10, 10];
         Panel[,] Field2 = new Panel[10, 10];
-        Panel[,] Field = new Panel[10, 10];
+        Random r = new Random();
         int[,] fieldArray1 = new int[12, 12];
         int[,] fieldArray2 = new int[12, 12];
-        int[,] fieldArray = new int[12, 12];
+        int[,] shoots1 = new int[2, 24], shoots2 = new int[2, 26];
+        int[,] shoots3 = new int[2, 50];
         int x = 3;
         int y = 4;
         int horizontal = 0;
@@ -44,57 +39,43 @@ namespace MainMenu
         int shipAmmount = -1;
         bool place;
         bool game = false;
-        bool turn = false;
+        bool turn = true;
         int score1 = 0;
         int score2 = 0;
 
         private void FormBattleships_Load(object sender, EventArgs e)
         {
-            IntPtr fontPtr = System.Runtime.InteropServices.Marshal.AllocCoTaskMem(fontData.Length);
-            System.Runtime.InteropServices.Marshal.Copy(fontData, 0, fontPtr, fontData.Length);
-            uint dummy = 0;
-            fonts.AddMemoryFont(fontPtr, Properties.Resources.BrokenChalk.Length);
-            AddFontMemResourceEx(fontPtr, (uint)Properties.Resources.BrokenChalk.Length, IntPtr.Zero, ref dummy);
-            System.Runtime.InteropServices.Marshal.FreeCoTaskMem(fontPtr);
-            brokenChalk = new Font(fonts.Families[0], 36.00F);
-            btnNextTurn.Font = brokenChalk;
+            brokenChalk = new Font(fonts.Families[0], 18.0F);
+            label1.Font = brokenChalk;
+            CreatePanel(18, Field1);
+            CreatePanel(592, Field2);
             NewGame();
+            Battleships.SetPCShips(ref fieldArray2);
+            Battleships.CreateShootArrays(ref shoots1, ref shoots2, ref shoots3);
+            /*string s="";
+            for(int i =0;i<50;i++)
+            {
+                for(int j=0;j<2;j++)
+                {
+                    s += Convert.ToString(shoots3[j, i]);
+                    s += " ";
+                }
+                s += "\r\n";
+            }
+            MessageBox.Show(s);*/
         }
 
         private void NewGame()
         {
-            this.SetStyle(ControlStyles.AllPaintingInWmPaint | ControlStyles.UserPaint | ControlStyles.DoubleBuffer, true);
-            CreatePanel(18, Field1);
-            CreatePanel(592, Field2);
-            Field = Field1;
-            fieldArray = fieldArray1;
             Battleships.NextShip(ref horizontal, ref vertical, ref shipAmmount);
-            DrawShip(horizontal, vertical, fieldArray, ref Field);     
+            Draw(fieldArray1, ref Field1);
+            DrawShip(horizontal, vertical, fieldArray1, ref Field1, x, y);
         }
 
         private void Restart()
         {
-            x = 3;
-            y = 4;
-            horizontal = 0;
-            vertical = 0;
-            shipAmmount = -1;
-            place = true;
-            game = false;
-            turn = false;
-            score1 = 0;
-            score2 = 0;
-            Clear(ref Field1);
-            Clear(ref Field2);
-            Battleships.NullArray(ref fieldArray);
-            Battleships.NullArray(ref fieldArray1);
-            Battleships.NullArray(ref fieldArray2);
-            Field = Field1;
-            fieldArray = fieldArray1;
-            Battleships.NextShip(ref horizontal, ref vertical, ref shipAmmount);
-            DrawShip(horizontal, vertical, fieldArray, ref Field);
-        }
 
+        }
 
         private void CreatePanel(int pos, Panel[,] panel)
         {
@@ -135,8 +116,9 @@ namespace MainMenu
                     switch (array[i + 1, j + 1])
                     {
                         case 0: panel[i, j].BackgroundImage = null; break;
-                        case 1:if(panel[i, j].BackgroundImage != Properties.Resources.Miss)
-                            panel[i, j].BackgroundImage = Properties.Resources.Miss; break;
+                        case 1:
+                            if (panel[i, j].BackgroundImage != Properties.Resources.Miss)
+                                panel[i, j].BackgroundImage = Properties.Resources.Miss; break;
                         case 2:
                             if (panel[i, j].BackgroundImage != Properties.Resources.Alive)
                                 panel[i, j].BackgroundImage = Properties.Resources.Alive; break;
@@ -144,8 +126,8 @@ namespace MainMenu
                             if (panel[i, j].BackgroundImage != Properties.Resources.Damaged)
                                 panel[i, j].BackgroundImage = Properties.Resources.Damaged; break;
                         case 4:
-                            if(panel[i, j].BackgroundImage != Properties.Resources.Dead)
-                            panel[i, j].BackgroundImage = Properties.Resources.Dead;
+                            if (panel[i, j].BackgroundImage != Properties.Resources.Dead)
+                                panel[i, j].BackgroundImage = Properties.Resources.Dead;
                             panel[i, j].BackgroundImage = Properties.Resources.Dead; break;
                     }
                 }
@@ -169,22 +151,13 @@ namespace MainMenu
             }
         }
 
-        private void DrawShip(int horizontal, int vertical, int[,] array, ref Panel[,] panel)
+        private void DrawShip(int horizontal, int vertical, int[,] array, ref Panel[,] panel, int x, int y)
         {
-            int color = 0;
-            if (Battleships.CheckPlace(x, y, horizontal, vertical, fieldArray, ref place) == true)
-            {
-                color = 0;
-            }
-            else
-            {
-                color = 1;
-            }
             for (int i = x; i < x + horizontal; i++)
             {
                 for (int j = y; j < y + vertical; j++)
                 {
-                    if (color == 0)
+                    if (Battleships.CheckPlace(x, y, horizontal, vertical, fieldArray1, ref place) == true)
                     {
                         panel[i, j].BackgroundImage = Properties.Resources.NewGreen;
                     }
@@ -198,177 +171,63 @@ namespace MainMenu
 
         private void FormBattleships_KeyDown(object sender, KeyEventArgs e)
         {
-            if (game == false)
-            {
-                switch (e.KeyCode)
-                {
-                    case Keys.Left:
 
-                        if (x > 0)
+        }
+
+        private void Shoot(int i, int j, ref int[,] fieldArray, ref Panel[,] Field)
+        {
+            switch (fieldArray[i + 1, j + 1])
+            {
+                case (int)Battleships.State.Alive:
+                    {
+                        if (Battleships.CheckShipState(i, j, fieldArray) == true)
                         {
-                            x--;
-                            //Clear(ref Field);
-                            Draw(fieldArray, ref Field);
-                            DrawShip(horizontal, vertical, fieldArray, ref Field);
+                            Hit.Play();
+                            fieldArray[i + 1, j + 1] = (int)Battleships.State.Damaged;
                         }
-                        break;
-                    case Keys.Up:
-                        if (y > 0)
+                        else
                         {
-                            y--;
-                            //Clear(ref Field);
-                            Draw(fieldArray, ref Field);
-                            DrawShip(horizontal, vertical, fieldArray, ref Field);
-                        }
-                        break;
-                    case Keys.Right:
-                        if (x + horizontal < 10)
-                        {
-                            x++;
-                            //Clear(ref Field);
-                            Draw(fieldArray, ref Field);
-                            DrawShip(horizontal, vertical, fieldArray, ref Field);
-                        }
-                        break;
-                    case Keys.Down:
-                        if (y + vertical < 10)
-                        {
-                            y++;
-                            //Clear(ref Field);
-                            Draw(fieldArray, ref Field);
-                            DrawShip(horizontal, vertical, fieldArray, ref Field);
-                        }
-                        break;
-                    case Keys.Enter:
-                        if (place == true)
-                        {
-                            Down.Play();              
-                            Battleships.SetShip(ref fieldArray, x, y, true, horizontal, vertical);
-                            Draw(fieldArray, ref Field);
-                            if (Battleships.NextShip(ref horizontal, ref vertical, ref shipAmmount) != true)
+                            Kill.Play();
+                            Battleships.KillShip(i, j, fieldArray);
+                            if (fieldArray == fieldArray1)
                             {
-                                Clear(ref Field);
-                                Battleships.ShootingMode(ref fieldArray);
-                                if (Field != Field2)
-                                {
-                                    Field = Field2;
-                                    fieldArray = fieldArray2;
-                                    shipAmmount = -1;
-                                    Battleships.NextShip(ref horizontal, ref vertical, ref shipAmmount);
-                                    DrawShip(horizontal, vertical, fieldArray, ref Field);
-                                }
-                                else
-                                {
-                                    game = true;
-                                    Clear(ref Field);
-                                    Battleships.ShootingMode(ref fieldArray);
-                                    NextTurn(ref turn);
-                                }
+                                AddScore(true);
                             }
                             else
                             {
-                                if (x > 7)
-                                {
-                                    x = 7;
-                                }
-                                DrawShip(horizontal, vertical, fieldArray, ref Field);
+                                AddScore(false);
                             }
                         }
-                        break;
-                    case Keys.ShiftKey:
-                        if (horizontal > vertical)
-                        {
-                            Rotate.Play();
-                            if (y + horizontal < 11)
-                            {
-                                Clear(ref Field);
-                                Draw(fieldArray, ref Field);
-                                Battleships.Rotate(ref horizontal, ref vertical);
-                                DrawShip(horizontal, vertical, fieldArray, ref Field);
-                                break;
-                            }
-                        }
-                        if (vertical > horizontal)
-                        {
-                            if (x + vertical < 11)
-                            {
-                                Clear(ref Field);
-                                Draw(fieldArray, ref Field);
-                                Battleships.Rotate(ref horizontal, ref vertical);
-                                DrawShip(horizontal, vertical, fieldArray, ref Field);
-                                break;
-                            }
-                        }
-                        break;
-                    case Keys.Escape:
-                        {
-                            FormPause Pause = new FormPause(this);
-                            Pause.ShowDialog();
-                        }
-                        break;
-                }
+                    }
+                    break;
+                case (int)Battleships.State.Empty:
+                    {
+                        Miss.Play();
+                        fieldArray[i + 1, j + 1] = (int)Battleships.State.Miss;
+                        turn = !turn;
+                    }
+                    break;
             }
-        }
-
-        private void Shoot(int i, int j, int x)
-        {
-            if (x == 1)
+            Draw(fieldArray1, ref Field1);
+            DrawGame(fieldArray2, ref Field2);
+            if (turn == false)
             {
-                Field = Field1;
-                fieldArray = fieldArray1;
-            }
-            else
-            {
-                Field = Field2;
-                fieldArray = fieldArray2;
-            }
-
-            if (fieldArray[i + 1, j + 1] == (int)Battleships.State.Empty)
-            {
-                Miss.Play();
-                Field[i, j].BackgroundImage = Properties.Resources.Miss;
-                fieldArray[i + 1, j + 1] = (int)Battleships.State.Miss;
-                btnNextTurn.Visible = true;
-                NextTurn(ref turn);
-
-            }
-            if (fieldArray[i + 1, j + 1] == (int)Battleships.State.Alive)
-            {
-                if (Battleships.CheckShipState(i, j, fieldArray) == true)
-                {
-                    Hit.Play();
-                    Field[i, j].BackgroundImage = Properties.Resources.Damaged;
-                    fieldArray[i + 1, j + 1] = (int)Battleships.State.Damaged;
-                }
-                else
-                {
-                    Kill.Play();
-                    Battleships.KillShip(i, j, fieldArray);
-                    DrawGame(fieldArray, ref Field);
-                    AddScore(turn);
-                }
+                timer1.Enabled = true;
             }
         }
 
         private void NextTurn(ref bool turn)
         {
+            MessageBox.Show("next turn");
             turn = !turn;
-            if (turn == false)
-            {
-                Draw(fieldArray1, ref Field1);
-                DrawGame(fieldArray2, ref Field2);
-            }
-            else
-            {
-                DrawGame(fieldArray1, ref Field1);
-                Draw(fieldArray2, ref Field2);
-            }
+            Draw(fieldArray1, ref Field1);
+            Draw(fieldArray2, ref Field2);
         }
 
-        private void AddScore(bool turn)
+        private void AddScore(bool player)
         {
 
-            if (turn == true)
+            if (player == true)
             {
                 score1++;
                 if (score1 > 9)
@@ -397,26 +256,33 @@ namespace MainMenu
 
         private void Panel_Hover(object sender, EventArgs e)
         {
-            if(game==false)
-            {
+            if(game ==false)
+            { 
+            Clear(ref Field1);
+            Draw(fieldArray1, ref Field1);
                 for (int i = 0; i < 10; i++)
                 {
                     for (int j = 0; j < 10; j++)
                     {
-                        if (sender == Field[i, j])
+                        if (Field1[i, j] == sender)
                         {
-                            x = i;
-                            y = j;
-                            if (y + vertical > 9)
-                            {
-                                y = 10 - vertical;
-                            }
-                            if (x + horizontal > 9)
+                            if (i + horizontal > 9)
                             {
                                 x = 10 - horizontal;
                             }
-                            Draw(fieldArray, ref Field);
-                            DrawShip(horizontal, vertical, fieldArray, ref Field);
+                            else
+                            {
+                                x = i;
+                            }
+                            if (j + vertical > 9)
+                            {
+                                y = 10 - vertical;
+                            }
+                            else
+                            {
+                                y = j;
+                            }
+                            DrawShip(horizontal, vertical, fieldArray1, ref Field1, x, y);
                         }
                     }
                 }
@@ -425,101 +291,252 @@ namespace MainMenu
 
         private void Panel_Click(object sender, MouseEventArgs me)
         {
-            if(game==false)
+            if (game == false)
             {
-                if (me.Button == MouseButtons.Right)
+                if (me.Button == MouseButtons.Left)
                 {
-                    Rotate.Play();
-                    for (int i = 0; i < 1; i++)
+                    if (Battleships.CheckPlace(x,y,horizontal,vertical,fieldArray1,ref place)==true)
                     {
-                        if (horizontal > vertical)
+                        Down.Play();
+                        Battleships.SetShip(ref fieldArray1, x, y, true, horizontal, vertical);
+                        Draw(fieldArray1, ref Field1);
+                        if (Battleships.NextShip(ref horizontal, ref vertical, ref shipAmmount) == false)
                         {
-                            if (y + horizontal < 11)
-                            {
-                                Clear(ref Field);
-                                Draw(fieldArray, ref Field);
-                                Battleships.Rotate(ref horizontal, ref vertical);
-                                DrawShip(horizontal, vertical, fieldArray, ref Field);
-                                break;
-                            }
-                        }
-                        if (vertical > horizontal)
-                        {
-                            if (x + vertical < 11)
-                            {
-                                Clear(ref Field);
-                                Draw(fieldArray, ref Field);
-                                Battleships.Rotate(ref horizontal, ref vertical);
-                                DrawShip(horizontal, vertical, fieldArray, ref Field);
-                                break;
-                            }
+                            Battleships.ShootingMode(ref fieldArray1);
+                            Battleships.ShootingMode(ref fieldArray2);
+                            DrawGame(fieldArray2, ref Field2);
+                            Draw(fieldArray1, ref Field1);
+                            game = true;
                         }
                     }
                 }
                 else
                 {
-                    if (place == true)
+                    Clear(ref Field1);
+                    Draw(fieldArray1, ref Field1);
+                    Battleships.Rotate(ref horizontal, ref vertical);
+                    if(x+horizontal>9)
                     {
-                        Down.Play();
-                        Battleships.SetShip(ref fieldArray, x, y, true, horizontal, vertical);
-                        Draw(fieldArray, ref Field);
-
-                        if (Battleships.NextShip(ref horizontal, ref vertical, ref shipAmmount) != true)
+                        x = 6;
+                    }
+                    if (y + vertical > 9)
+                    {
+                        y = 6;
+                    }
+                    DrawShip(horizontal, vertical, fieldArray1,ref Field1, x, y);
+                }
+            }
+            else
+            {if (turn == true)
+                {
+                    for (int i = 0; i < 10; i++)
+                    {
+                        for (int j = 0; j < 10; j++)
                         {
-                            Clear(ref Field);
-                            Battleships.ShootingMode(ref fieldArray);                           
-                            if (Field != Field2)
+                            if (Field2[i, j] == sender)
                             {
-                                btnNextTurn.Visible = true;
-                                x = 3;
-                                y = 4;
-                                Field = Field2;
-                                fieldArray = fieldArray2;
-                                shipAmmount = -1;
-                                Battleships.NextShip(ref horizontal, ref vertical, ref shipAmmount);
-                                DrawShip(horizontal, vertical, fieldArray, ref Field);
+                                Shoot(i, j, ref fieldArray2, ref Field2);
                             }
-                            else
-                            {
-                                game = true;
-                                Clear(ref Field);
-                                Battleships.ShootingMode(ref fieldArray);
-                                NextTurn(ref turn);
-                            }
-                        }
-                        else
-                        {
-                            if (x > 7)
-                            {
-                                x = 7;
-                            }
-                            DrawShip(horizontal, vertical, fieldArray, ref Field);
                         }
                     }
+                }
+            }
+        }
+
+        private void PCShoot(ref int[,] fieldArray, ref int[,] shoots1, ref int[,] shoots2, ref int[,] shoots3)
+        {
+            int x, y;
+            int [,] count;
+            int lines;
+            int rand;
+            Battleships.Direction direction1 = new Battleships.Direction();
+            Battleships.Direction direction2 = new Battleships.Direction();
+            if (Battleships.SearchDamaged(fieldArray1, out count) == true)
+            {
+                lines = Battleships.CountArrayLines(count);
+               if (lines>1)
+                {
+                    rand = r.Next(lines);
+                    Battleships.FindDamagedDirection(count[0,rand], count[1, rand], fieldArray1, ref direction1, ref direction2);
+                    while (ShootRandomDirection(count[0, rand], count[1, rand], direction1, direction2) == false)
+                    {
+                        rand = r.Next(lines);
+                    };
+
+                }
+                else
+                {
+                    while (ShootRandomDirection(count[0, 0], count[1, 0], Battleships.Direction.Null, Battleships.Direction.Null) == false);
                 }
             }
             else
             {
-                for (int i = 0; i < 10; i++)
+                if (Battleships.CountArrayLines(shoots1) == 0)
                 {
-                    for (int j = 0; j < 10; j++)
+                    if (Battleships.CountArrayLines(shoots2) == 0)
                     {
-                        if (sender == Field1[i, j] && turn == true)
+                        if (Battleships.CountArrayLines(shoots3) == 0)
                         {
-                            Shoot(i, j, 1);
+
                         }
-                        if (sender == Field2[i, j] && turn == false)
+                        else
                         {
-                            Shoot(i, j, 2);
+                            Battleships.ChooseRandomCoordinates(ref shoots3, out x, out y);
+                            while (fieldArray1[x + 1, y + 1] != (int)Battleships.State.Alive && fieldArray1[x + 1, y + 1] != (int)Battleships.State.Empty)
+                            {
+                                if (Battleships.CountArrayLines(shoots3) == 0)
+                                {
+                                    break;
+                                }
+                                Battleships.ChooseRandomCoordinates(ref shoots3, out x, out y);
+                            }
+                            Shoot(x, y, ref fieldArray1, ref Field1);
                         }
                     }
+                    else
+                    {
+                        Battleships.ChooseRandomCoordinates(ref shoots2, out x, out y);
+                        while (fieldArray1[x + 1, y + 1] != (int)Battleships.State.Alive && fieldArray1[x + 1, y + 1] != (int)Battleships.State.Empty)
+                        {
+                            if (Battleships.CountArrayLines(shoots2) == 0)
+                            {
+                                break;
+                            }
+                            Battleships.ChooseRandomCoordinates(ref shoots2, out x, out y);
+                        }
+                        Shoot(x, y, ref fieldArray1, ref Field1);
+                    }
+                }
+                else
+                {
+                    Battleships.ChooseRandomCoordinates(ref shoots1, out x, out y);
+                    while (fieldArray1[x + 1, y + 1] != (int)Battleships.State.Alive && fieldArray1[x + 1, y + 1] != (int)Battleships.State.Empty)
+                    {
+                        if (Battleships.CountArrayLines(shoots1) == 0)
+                        {
+                            break;
+                        }
+                        Battleships.ChooseRandomCoordinates(ref shoots1, out x, out y);
+                    }
+                    Shoot(x, y, ref fieldArray1, ref Field1);
+                }
+            }
+        }
+        
+
+        private bool ShootRandomDirection(int x, int y, Battleships.Direction direction1, Battleships.Direction direction2)
+        {
+            if (direction1 == Battleships.Direction.Null)
+            {
+                switch (r.Next(4))
+                {
+                    case (int)Battleships.Direction.Left:
+                        if(ShootDirection(x, y, Battleships.Direction.Left)==true)
+                            return true;
+                        else
+                            return false;
+                    case (int)Battleships.Direction.Up:
+                        if (ShootDirection(x, y, Battleships.Direction.Up) == true)
+                            return true;
+                        else
+                            return false;
+                    case (int)Battleships.Direction.Right:
+                        if (ShootDirection(x, y, Battleships.Direction.Right) == true)
+                            return true;
+                        else
+                            return false;
+                    case (int)Battleships.Direction.Down:
+                        if (ShootDirection(x, y, Battleships.Direction.Down) == true)
+                            return true;
+                        else
+                            return false;
+                    default: return false;
+                }
+            }
+            else
+            {
+                if (r.Next(2) == 0)
+                {
+                    if (ShootDirection(x, y, direction1) == true)
+                        return true;
+                    else
+                        return false;
+                }
+                else
+                {
+                    if (ShootDirection(x, y, direction2) == true)
+                        return true;
+                    else
+                        return false;
                 }
             }
         }
 
-        private void btnNextTurn_Click(object sender, EventArgs e)
+        private void timer1_Tick(object sender, EventArgs e)
         {
-            btnNextTurn.Visible = false;
+            timer1.Enabled = false;
+            PCShoot(ref fieldArray1, ref shoots1, ref shoots2, ref shoots3);         
         }
+
+        private bool ShootDirection(int x, int y, Battleships.Direction direction)
+        {
+            switch (direction)
+            {
+                case Battleships.Direction.Left:
+                    if (fieldArray1[x, y + 1] == (int)Battleships.State.Empty || fieldArray1[x, y + 1] == (int)Battleships.State.Alive)
+                    {
+                        if (x > 0)
+                        {
+                            Shoot(x - 1, y, ref fieldArray1, ref Field1);
+                            return true;
+                        }
+                        else
+                            return false;
+                    }
+                    else
+                        return false;
+                case Battleships.Direction.Up:
+                    if (fieldArray1[x + 1, y] == (int)Battleships.State.Empty || fieldArray1[x + 1, y] == (int)Battleships.State.Alive)
+                    {
+                        if (y > 0)
+                        {
+                            Shoot(x, y - 1, ref fieldArray1, ref Field1);
+                            return true;
+                        }
+                        else
+                            return false;
+                    }
+                    else
+                        return false;
+                case Battleships.Direction.Right:
+                    if (fieldArray1[x + 2, y + 1] == (int)Battleships.State.Empty || fieldArray1[x + 2, y + 1] == (int)Battleships.State.Alive)
+                    {
+                        if (x < 10)
+                        {
+                            Shoot(x + 1, y, ref fieldArray1, ref Field1);
+                            return true;
+                        }
+                        else
+                            return false;
+                    }
+                    else
+                        return false;
+                case Battleships.Direction.Down:
+                    if (fieldArray1[x + 1, y + 2] == (int)Battleships.State.Empty || fieldArray1[x + 1, y + 2] == (int)Battleships.State.Alive)
+                    {
+                        if (y < 10)
+                        {
+                            Shoot(x, y + 1, ref fieldArray1, ref Field1);
+                            return true;
+                        }
+                        else
+                            return false;
+                    }
+                    else
+                        return false;
+                default: return false;
+            }
+        }
+
     }
 }

@@ -14,19 +14,12 @@ using System.Drawing.Text;
 
 namespace MainMenu
 {
-    public partial class FormTetris : Form
+    public partial class FormTetris : ParentForm
     {
         public FormTetris()
         {
             InitializeComponent();
         }
-        [System.Runtime.InteropServices.DllImport("gdi32.dll")]
-        private static extern IntPtr AddFontMemResourceEx(IntPtr pbFont, uint cbFont,
-            IntPtr pdv, [System.Runtime.InteropServices.In] ref uint pcFonts);
-        private PrivateFontCollection fonts = new PrivateFontCollection();
-        Font brokenChalk;
-        byte[] fontData = Properties.Resources.BrokenChalk;
-        public WindowsMediaPlayer player = new WindowsMediaPlayer();
         SoundPlayer DownSound = new SoundPlayer(Properties.Resources.TetrisDown);
         SoundPlayer Rotate = new SoundPlayer(Properties.Resources.TetrisRotate);
         SoundPlayer Win = new SoundPlayer(Properties.Resources.Win);
@@ -53,17 +46,15 @@ namespace MainMenu
 
         private void FormTetris_Load(object sender, EventArgs e)
         {
-            IntPtr fontPtr = System.Runtime.InteropServices.Marshal.AllocCoTaskMem(fontData.Length);
-            System.Runtime.InteropServices.Marshal.Copy(fontData, 0, fontPtr, fontData.Length);
-            uint dummy = 0;
-            fonts.AddMemoryFont(fontPtr, Properties.Resources.BrokenChalk.Length);
-            AddFontMemResourceEx(fontPtr, (uint)Properties.Resources.BrokenChalk.Length, IntPtr.Zero, ref dummy);
-            System.Runtime.InteropServices.Marshal.FreeCoTaskMem(fontPtr);
             brokenChalk = new Font(fonts.Families[0], 21.75F);
             label1.Font = brokenChalk;
-            label1.Font = brokenChalk;
+            label2.Font = brokenChalk;
             labelNext.Font = brokenChalk;
             labelScore.Font = brokenChalk;
+            brokenChalk = new Font(fonts.Families[0], 18.00F);
+            label3.Font = brokenChalk;
+            label5.Font = brokenChalk;
+            label7.Font = brokenChalk;
             NewGame();
         }
 
@@ -457,7 +448,7 @@ namespace MainMenu
                     case Keys.Escape:
                         {
                             timer1.Enabled = false;
-                            FormPause Pause = new FormPause(this, true);
+                            FormPause Pause = new FormPause(this);
                             Pause.ShowDialog();
                         }
                         break;

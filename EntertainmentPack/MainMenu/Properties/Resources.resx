@@ -136,9 +136,6 @@
   <data name="ScreenshotDurak" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\ScreenshotDurak.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="DurakTake" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\bin\Release\Sounds\DurakITake.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
   <data name="Orange" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\149330472610066 (5).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -151,9 +148,6 @@
   <data name="fa351808b812e7519fdaf9330414f7e7_heart-heart-doodle-and-doodle-heart-clipart-free_1023-810" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\fa351808b812e7519fdaf9330414f7e7_heart-heart-doodle-and-doodle-heart-clipart-free_1023-810.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="DurakShuffle" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\bin\Release\Sounds\DurakShuffle.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
   <data name="ScreenshotTetris" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\ScreenshotTetris.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -165,9 +159,6 @@
   </data>
   <data name="BattleshipsHit" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\bin\Release\Sounds\BattleShipsHit.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="DurakITake" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\bin\Release\Sounds\DurakTakes.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="Blue" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\149330472610066.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -232,14 +223,8 @@
   <data name="Red" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\149330472610066 (4).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="DurakYourTurn" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\bin\Release\Sounds\DurakYourTurn.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
   <data name="Error" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\bin\Release\Sounds\Exception Error.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="DurakMove" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\bin\Release\Sounds\DurakMove.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="TetrisMove" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\TetrisMove.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -252,9 +237,6 @@
   </data>
   <data name="arrow1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\arrow1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="DurakGive" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\bin\Release\Sounds\DurakGiveCards.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="Draw" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\bin\Release\Sounds\Draw.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -270,12 +252,6 @@
   </data>
   <data name="NewRed" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\149485800666020 (2).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="DurakUh" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\bin\Release\Sounds\DurakReallyTakes.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="DurakBito" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\bin\Release\Sounds\DurakBito.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="Template_KeyClub_Blue graduation doodle" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Template_KeyClub_Blue graduation doodle.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>

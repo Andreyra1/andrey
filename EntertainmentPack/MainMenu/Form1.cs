@@ -11,20 +11,13 @@ using WMPLib;
 using System.Drawing.Text;
 namespace MainMenu
 {
-    public partial class Form1 : Form
+    public partial class Form1 : ParentForm
     {
         public Form1()
         {
             InitializeComponent();
         }
-
-        [System.Runtime.InteropServices.DllImport("gdi32.dll")]
-        private static extern IntPtr AddFontMemResourceEx(IntPtr pbFont, uint cbFont,
-            IntPtr pdv, [System.Runtime.InteropServices.In] ref uint pcFonts);
-        private PrivateFontCollection fonts = new PrivateFontCollection();
-        Font brokenChalk;
-        byte[] fontData = Properties.Resources.BrokenChalk;
-                  
+                       
         WindowsMediaPlayer player = new WindowsMediaPlayer();
 
         private void btnExit_Click(object sender, EventArgs e)
@@ -48,35 +41,12 @@ namespace MainMenu
             this.Hide();
         }
 
-        private void btnDurak_Click(object sender, EventArgs e)
-        {
-            player.controls.stop();
-            FormDurak Durak = new FormDurak();
-            Durak.Show();
-            this.Hide();
-        }
-
         private void btnTetris_Click(object sender, EventArgs e)
         {
             player.controls.stop();
             FormTetris Tetris = new FormTetris();
             Tetris.Show();
             this.Hide();
-        }
-
-        private void HideMenu()
-        {
-            label.Hide();
-            btnBattleships.Hide();
-            btnDurak.Hide();
-            btnExit.Hide();
-            btnTetris.Hide();
-            btnTicTac.Hide();
-            labelName.Hide();
-            pictureBox.Hide();
-            labelText.Hide();
-            bigSquare.Hide();
-            smallSquare.Hide();
         }
 
         private void Form1_FormClosed(object sender, FormClosedEventArgs e)
@@ -98,13 +68,6 @@ namespace MainMenu
             pictureBox.Image = Properties.Resources.ScreenshotTicTac;
         }
 
-        private void btnDurak_MouseEnter(object sender, EventArgs e)
-        {
-            labelName.Text = "DURAK: THE CARD GAME";
-            labelText.Text = "PLAY ONE OF THE MOST FAMOUS CARD GAMES \r\nIN THE WORLD!\r\nIT IS YOU AGAINST THE PC! FIND OUT WHO IS\r\nA BETTER PLAYER!";
-            pictureBox.Image = Properties.Resources.ScreenshotDurak;
-        }
-
         private void btnTetris_MouseEnter(object sender, EventArgs e)
         {
             labelName.Text = "TETRIS";
@@ -114,33 +77,26 @@ namespace MainMenu
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            IntPtr fontPtr = System.Runtime.InteropServices.Marshal.AllocCoTaskMem(fontData.Length);
-            System.Runtime.InteropServices.Marshal.Copy(fontData, 0, fontPtr, fontData.Length);
-            uint dummy = 0;
-            fonts.AddMemoryFont(fontPtr, Properties.Resources.BrokenChalk.Length);
-            AddFontMemResourceEx(fontPtr, (uint)Properties.Resources.BrokenChalk.Length, IntPtr.Zero, ref dummy);
-            System.Runtime.InteropServices.Marshal.FreeCoTaskMem(fontPtr);
             brokenChalk = new Font(fonts.Families[0], 20.25F);
             label.Font = brokenChalk;
             brokenChalk = new Font(fonts.Families[0], 9.75F);
             btnBattleships.Font = brokenChalk;
             btnTicTac.Font = brokenChalk;
             brokenChalk = new Font(fonts.Families[0], 18.00F);
-            btnDurak.Font = brokenChalk;
             btnTetris.Font = brokenChalk;
             btnExit.Font = brokenChalk;
-            brokenChalk = new Font(fonts.Families[0], 14.25F);
-            button1.Font = brokenChalk;
-            player.URL = "Music/SongOne.wav";
+            brokenChalk = new Font(fonts.Families[0], 15.75F);
+            labelText.Font = brokenChalk;
+            brokenChalk = new Font(fonts.Families[0], 27.75F);
+            labelName.Font = brokenChalk;
+            player.URL = "Music/Main.wav";
             player.controls.play();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void Form1_Shown(object sender, EventArgs e)
         {
-            player.controls.stop();
-            FormCredits Credits = new FormCredits();
-            Credits.Show();
-            this.Hide();
+            this.BringToFront();
+            this.KeyPreview = true;
         }
     }
 }

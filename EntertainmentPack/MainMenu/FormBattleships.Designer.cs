@@ -28,50 +28,42 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormBattleships));
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.btnNextTurn = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox1.Image = global::MainMenu.Properties.Resources.doodles_22_512;
-            this.pictureBox1.Location = new System.Drawing.Point(790, 548);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(204, 160);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 11;
-            this.pictureBox1.TabStop = false;
             // 
             // pictureBox2
             // 
             this.pictureBox2.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox2.Image = global::MainMenu.Properties.Resources._8e180e7e0ebdadb1092f6eda5267e0be_doodle_arrow_clip_art_png_clipart_doodle_2000_782;
-            this.pictureBox2.Location = new System.Drawing.Point(39, 568);
+            this.pictureBox2.Location = new System.Drawing.Point(630, 558);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(404, 118);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox2.TabIndex = 12;
             this.pictureBox2.TabStop = false;
             // 
-            // btnNextTurn
+            // timer1
             // 
-            this.btnNextTurn.BackgroundImage = global::MainMenu.Properties.Resources.Background1;
-            this.btnNextTurn.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnNextTurn.Font = new System.Drawing.Font("Broken Chalk", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnNextTurn.ForeColor = System.Drawing.Color.Blue;
-            this.btnNextTurn.Location = new System.Drawing.Point(0, 0);
-            this.btnNextTurn.Name = "btnNextTurn";
-            this.btnNextTurn.Size = new System.Drawing.Size(1080, 720);
-            this.btnNextTurn.TabIndex = 13;
-            this.btnNextTurn.Text = "NEXT PLAYER\r\n\r\nPRESS ANYWHERE";
-            this.btnNextTurn.UseVisualStyleBackColor = true;
-            this.btnNextTurn.Visible = false;
-            this.btnNextTurn.Click += new System.EventHandler(this.btnNextTurn_Click);
+            this.timer1.Interval = 500;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.Font = new System.Drawing.Font("Broken Chalk", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.Blue;
+            this.label1.Location = new System.Drawing.Point(12, 558);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(509, 108);
+            this.label1.TabIndex = 13;
+            this.label1.Text = "USE MOUSE LEFT BUTTON TO SHOOT \r\nAND PLACE SHIPS\r\n\r\nRIGHT BUTTON TO ROTATE SHIPS\r" +
+    "\n";
             // 
             // FormBattleships
             // 
@@ -80,12 +72,12 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.ClientSize = new System.Drawing.Size(1080, 720);
-            this.Controls.Add(this.btnNextTurn);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.pictureBox2);
-            this.Controls.Add(this.pictureBox1);
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.KeyPreview = true;
             this.MaximizeBox = false;
             this.Name = "FormBattleships";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -93,16 +85,15 @@
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FormBattleships_FormClosed);
             this.Load += new System.EventHandler(this.FormBattleships_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FormBattleships_KeyDown);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox pictureBox2;
-        private System.Windows.Forms.Button btnNextTurn;
+        private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Label label1;
     }
 }
